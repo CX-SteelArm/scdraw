@@ -1,0 +1,24 @@
+#coding:utf-8
+
+from PIL import Image,ImageDraw,ImageFont,ImageColor
+from conf import *
+
+
+scr = r'C:\Users\Administrator\Desktop\2.tif'
+
+im = Image.open(scr)
+print(im.size)
+
+draw = ImageDraw.Draw(im)
+
+font = ImageFont.truetype('arial.ttf',72)
+
+draw.text((10,10),"(a)",font=font,fill='#eeeeee')
+
+del draw
+
+newim = Image.new(mode='RGB',size=(2048,973),color="#ffffff")
+
+newim.paste(im,box=(200,0))
+
+newim.show()
